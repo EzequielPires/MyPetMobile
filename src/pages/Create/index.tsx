@@ -15,6 +15,7 @@ import { initializeApp } from 'firebase/app';
 import { getStorage, ref, uploadBytes } from 'firebase/storage';
 import * as FileSystem from 'expo-file-system';
 import { FileSystemUploadType } from "expo-file-system";
+import { StatusBar } from "expo-status-bar";
 
 const firebaseConfig = {
     apiKey: "AIzaSyC_PQRYqRmsE6mk6cvgHUs7nWZFRdHfZyY",
@@ -159,7 +160,11 @@ export function Create() {
     return (
         <ScrollView style={styles.container}>
             <View style={styles.header}>
-                <Icon name="chevron-left" size={24} color='#EB4A69' />
+                <TouchableOpacity onPress={() => {
+                    navigation.goBack()
+                }}>
+                    <Icon name="chevron-left" size={24} color='#EB4A69' />
+                </TouchableOpacity>
                 <Text style={styles.title}>Create a new adoption post</Text>
             </View>
             <KeyboardAvoidingView style={styles.keyboard}>

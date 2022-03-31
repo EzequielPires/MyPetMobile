@@ -17,6 +17,7 @@ export function Profile() {
         await api.get('pets/my-pets', {
             headers: { Authorization: `Bearer ${token}` }
         }).then(res => {
+            console.log(res.data)
             setPets(res.data.data);
         })
     }
@@ -39,7 +40,7 @@ export function Profile() {
 
     return (
         <ScrollView style={styles.container}>
-            <View style={{ flexDirection: "row", justifyContent: "space-between", marginTop: 32, paddingHorizontal: 20 }}>
+            <View style={{ flexDirection: "row", justifyContent: "space-between", marginTop: 48, paddingHorizontal: 20 }}>
                 <IconFa name="envelope" size={24} color={'#EB4A69'} />
                 <IconFa name="cog" size={24} color={'#EB4A69'} />
             </View>

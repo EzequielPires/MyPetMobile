@@ -37,8 +37,8 @@ export function Login() {
             <View style={styles.content}>
                 <Text style={styles.title}>Faça seu login</Text>
                 {error ? <Text style={styles.error}>Email e/ou senha incorreto!</Text> : null}
-                <Input value={email} onChange={setEmail} label={"E-mail"} placeholder={"Enter your e-mail"}/>
-                <Input value={password} onChange={setPassword} label={"Password"} placeholder={"Enter your password"} secureTextEntry={true}/>
+                <Input value={email} onChange={setEmail} label={"E-mail"} placeholder={"Entre com seu email"}/>
+                <Input value={password} onChange={setPassword} label={"Senha"} placeholder={"Entre com sua senha"} secureTextEntry={true}/>
                 <View style={{ width: '100%', alignItems: 'flex-end', marginTop: 16 }}>
                     <Text style={styles.link}>Esqueceu a senha?</Text>
                 </View>

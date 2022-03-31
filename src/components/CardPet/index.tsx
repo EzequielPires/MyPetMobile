@@ -24,7 +24,7 @@ export function CardPet({ pet }: any) {
             </View>
             <View style={{ padding: 8 }}>
                 <View style={{ flexDirection: "row" }}>
-                    {pet?.gender === 'female' ? <Text style={styles.female}>Female</Text> : <Text style={styles.male}>Male</Text>}
+                    {pet?.gender === '0' ? <Text style={styles.female}>Female</Text> : <Text style={styles.male}>Male</Text>}
                     <Text style={styles.gender}>{pet.age.name}</Text>
                 </View>
                 <View style={{flexDirection: 'row', alignItems: 'center', marginVertical: 8}}>

@@ -35,10 +35,10 @@ export function SignUp() {
             </View>
             <View style={styles.content}>
                 <KeyboardAvoidingView style={styles.keyboard}>
-                    <Input value={name} onChange={setName} label={"Name"} placeholder={"Enter your name"} />
-                    <Input value={email} onChange={setEmail} label={"E-mail"} placeholder={"Enter your e-mail"} />
-                    <Input value={password} onChange={setPassword} label={"Password"} placeholder={"Enter your password"} />
-                    <Input value={cellPhone} onChange={setCellPhone} label={"Cell Phone"} placeholder={"Enter your cell phone"} />
+                    <Input value={name} onChange={setName} label={"Nome"} placeholder={"Digite seu nome"} />
+                    <Input value={email} onChange={setEmail} label={"E-mail"} placeholder={"Digite seu e-mail"} />
+                    <Input value={password} onChange={setPassword} label={"Senha"} placeholder={"Digite sua senha"} />
+                    <Input value={cellPhone} onChange={setCellPhone} label={"Celular"} placeholder={"Digite seu número para contato"} />
                     <TouchableOpacity style={styles.button_submit} onPress={createUser}>
                         <Text style={styles.text_button}>Create</Text>
                     </TouchableOpacity>
@@ -49,7 +49,7 @@ export function SignUp() {
                 </KeyboardAvoidingView>
                 <TouchableOpacity onPress={() => navigation.goBack()}>
                     <Text style={styles.title}>
-                        Already have an account? <Text style={styles.strong}>Sign In</Text>
+                        Já tem uma conta? <Text style={styles.strong}>Sign In</Text>
                     </Text>
                 </TouchableOpacity>
             </View>

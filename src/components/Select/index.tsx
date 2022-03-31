@@ -1,3 +1,4 @@
+import StatusBar, { setStatusBarHidden } from "expo-status-bar";
 import { useState } from "react";
 import { FlatList, Modal, Text, TouchableOpacity, View } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome5";
@@ -18,7 +19,10 @@ export function Select({ label, placeholder, options, selected, onChange }: Sele
         <>
             <View style={styles.select}>
                 <Text style={styles.label}>{label}</Text>
-                <TouchableOpacity style={styles.button} onPress={() => setModalVisibel(!modalVisible)}>
+                <TouchableOpacity style={styles.button} onPress={() => {
+                    setStatusBarHidden(false, 'none');
+                    setModalVisibel(!modalVisible);
+                }}>
                     <Text style={styles.placeholder}>{selected && selected.name ? selected.name : placeholder}</Text>
                     <Icon name="chevron-down" size={14} color='#999' />
                 </TouchableOpacity>
@@ -31,7 +35,10 @@ export function Select({ label, placeholder, options, selected, onChange }: Sele
                 <View style={styles.modal}>
                     <TouchableOpacity
                         style={{ flexDirection: "row", alignItems: "center" }}
-                        onPress={() => setModalVisibel(!modalVisible)}
+                        onPress={() => {
+                            setStatusBarHidden(true, 'none');
+                            setModalVisibel(!modalVisible)
+                        }}
                     >
                         <Icon name="chevron-left" size={24} color='#999' />
                         <Text style={styles.title_modal}>{placeholder}</Text>

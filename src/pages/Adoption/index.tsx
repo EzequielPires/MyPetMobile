@@ -5,6 +5,7 @@ import Icon from 'react-native-vector-icons/FontAwesome5';
 import { styles } from "./styles";
 import { api } from "../../services/api";
 import { CardPet } from "../../components/CardPet";
+import { useNavigation } from "@react-navigation/native";
 
 export function Adoption() {
     const [active, setActive] = useState(0);
@@ -36,6 +37,7 @@ export function Adoption() {
         }
     ]
     const [pets, setPets] = useState<Array<any>>([]);
+    const navigation = useNavigation();
 
     const handlePets = async (type_id?: string) => {
         {
@@ -50,11 +52,12 @@ export function Adoption() {
     }
 
     useEffect(() => {
-        handlePets();
-    }, []);
-    useEffect(() => {
-        handlePets();
-    }, []);
+        navigation.addListener('focus', () => {
+            handlePets();
+          });
+        
+    }, [navigation]);
+
 
     const handleClick = (index: number, type_id: string) => {
         setActive(index);

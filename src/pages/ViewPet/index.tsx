@@ -1,5 +1,5 @@
 import { useNavigation, useRoute } from "@react-navigation/native";
-import { Image, ScrollView, Text, Touchable, TouchableOpacity, View } from "react-native";
+import { Image, Linking, ScrollView, Text, Touchable, TouchableOpacity, View } from "react-native";
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import { styles } from "./styles";
@@ -10,6 +10,11 @@ export function ViewPet() {
 
     const { pet }: any = route.params;
     let avatar = 'https://avatars.githubusercontent.com/u/52329523?v=4'
+    const message = `Olá ${pet.user.name}, estou entrando em contato pois gostaria de adotar o pet ${pet.name}`;
+
+    function sendWhatsapp(){
+        Linking.openURL(`whatsapp://send?phone=+55 ${pet.user.phone}&text=${message}`);
+    }
     return (
         <ScrollView style={styles.container}>
             <TouchableOpacity style={{ position: 'absolute', top: 32, left: 20, zIndex: 9999 }}  onPress={() => {
@@ -33,7 +38,7 @@ export function ViewPet() {
                     </View>
                     <View style={{ alignItems: 'center' }}>
                         <Text style={{ fontSize: 14, color: '#555' }}>Sex</Text>
-                        <Text style={{ fontSize: 16, color: '#333', fontWeight: '700', textTransform: 'capitalize' }}>{pet.gender}</Text>
+                        <Text style={{ fontSize: 16, color: '#333', fontWeight: '700', textTransform: 'capitalize' }}>{pet.gender === "0" ? "Female" : "Male"}</Text>
                     </View>
                     <View style={{ alignItems: 'center' }}>
                         <Text style={{ fontSize: 14, color: '#555' }}>Size</Text>
@@ -68,7 +73,7 @@ export function ViewPet() {
                     </View>
                 </View>
                 <View style={{ marginTop: 24, alignItems: 'center' }}>
-                    <TouchableOpacity style={styles.btn}>
+                    <TouchableOpacity style={styles.btn} onPress={sendWhatsapp}>
                         <Text style={styles.text_btn}>Message</Text>
                     </TouchableOpacity>
                 </View>

@@ -28,7 +28,7 @@ export default function App() {
   return (
     <AuthProvider>
       <Routes />
-      <StatusBar style="light" />
+      <StatusBar style="dark" backgroundColor='#fff' hidden={true}/>
     </AuthProvider>
   );
 }
