@@ -13,7 +13,7 @@ export function Profile() {
     const [pets, setPets] = useState<Array<any>>([]);
 
     const handlePets = async () => {
-        const token = await AsyncStorage.getItem(TOKEN_KEY); 
+        const token = await AsyncStorage.getItem(TOKEN_KEY);
         await api.get('pets/my-pets', {
             headers: { Authorization: `Bearer ${token}` }
         }).then(res => {
@@ -34,7 +34,7 @@ export function Profile() {
     }, []);
 
     let avatar = 'https://avatars.githubusercontent.com/u/52329523?v=4';
-    if(!user) {
+    if (!user) {
         return null
     }
 
@@ -73,7 +73,7 @@ export function Profile() {
                         </View>
                     </View>
                 </View>
-                <View style={{flexDirection: "row", marginTop: 16}}>
+                <View style={{ flexDirection: "row", marginTop: 16 }}>
                     <TouchableOpacity style={[styles.switch, switchButton === 1 ? styles.active : null]} onPress={() => {
                         setSwitchButton(1);
                     }}>
@@ -88,7 +88,7 @@ export function Profile() {
                 <View style={{ padding: 20 }}>
                     <View style={{ flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'space-between' }}>
                         {pets?.map((item, index) => (
-                            <CardPet key={index} pet={item} />
+                            <CardPet pet={item} />
                         ))}
                     </View>
                 </View>

@@ -12,15 +12,12 @@ import { TOKEN_KEY } from "../../services/auth";
 import * as ImagePicker from 'expo-image-picker';
 
 import { initializeApp } from 'firebase/app';
-import { getStorage, ref, uploadBytes } from 'firebase/storage';
 import * as FileSystem from 'expo-file-system';
 import { FileSystemUploadType } from "expo-file-system";
-import { StatusBar } from "expo-status-bar";
 
 const firebaseConfig = {
     apiKey: "AIzaSyC_PQRYqRmsE6mk6cvgHUs7nWZFRdHfZyY",
     authDomain: "mypet-62d19.firebaseapp.com",
-    //databaseURL: "https://mypet-62d19-default-rtdb.firebaseio.com",
     projectId: "mypet-62d19",
     storageBucket: "mypet-62d19.appspot.com",
     messagingSenderId: "611284061002",
@@ -33,12 +30,12 @@ export function Create() {
     const [image, setImage] = useState<any>(null);
     const [name, setName] = useState('');
     const [type, setType] = useState<any>(null);
-    const [listType, setListType] = useState<any>(null);
     const [race, setRace] = useState<any>(null);
-    const [listRace, setListRace] = useState<any>(null);
     const [age, setAge] = useState<any>(null);
-    const [listAge, setListAge] = useState<any>(null);
     const [sex, setSex] = useState<any>(null);
+    const [listType, setListType] = useState<any>(null);
+    const [listRace, setListRace] = useState<any>(null);
+    const [listAge, setListAge] = useState<any>(null);
     const listSex = [
         {
             id: '0',
@@ -65,7 +62,7 @@ export function Create() {
     const uploadImage = async (id: any, uri: any) => {
         console.log(id);
         console.log(uri);
-        await FileSystem.uploadAsync(`http://192.168.0.39:3000/photos/upload/${id}`, uri, {
+        await FileSystem.uploadAsync(`http://192.168.0.138:3000/photos/upload/${id}`, uri, {
             uploadType: FileSystemUploadType.MULTIPART,
             fieldName: "file"
         });
@@ -157,6 +154,16 @@ export function Create() {
     useEffect(() => {
         handlePets();
     }, []);
+    useEffect(() => {
+        navigation.addListener('focus', () => {
+            setImage(null);
+            setName('');
+            setType(null);
+            setRace(null);
+            setAge(null);
+            setSex(null);
+        });
+    }, [navigation]);
     return (
         <ScrollView style={styles.container}>
             <View style={styles.header}>

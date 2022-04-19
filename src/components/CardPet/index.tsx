@@ -18,7 +18,7 @@ export function CardPet({ pet }: any) {
                     pet.photos && pet.photos.length > 0 ?
                     <Image
                         style={{ width: '100%', height: 102, borderTopRightRadius: 8, borderTopLeftRadius: 8 }}
-                        source={{ uri: `http://192.168.0.39:3000/photos/${pet.photos.length > 0 && pet.photos[0].filename ? pet.photos[0].filename : ''}` }}
+                        source={{ uri: `http://192.168.0.138:3000/photos/${pet.photos.length > 0 && pet.photos[0].filename ? pet.photos[0].filename : ''}` }}
                     /> : null
                 }
             </View>

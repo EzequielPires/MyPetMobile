@@ -28,7 +28,7 @@ export function ViewPet() {
                 <AntDesign name="hearto" size={18} color={'#EB4A69'}/>
             </TouchableOpacity>
             <View>
-                <Image source={{ uri: `http://192.168.0.39:3000/photos/${pet.photos[0].filename}` }} style={{ width: '100%', height: 294, borderBottomLeftRadius: 16, borderBottomRightRadius: 16 }} />
+                <Image source={{ uri: `http://192.168.0.138:3000/photos/${pet.photos[0].filename}` }} style={{ width: '100%', height: 294, borderBottomLeftRadius: 16, borderBottomRightRadius: 16 }} />
             </View>
             <View style={{ paddingHorizontal: 20 }}>
                 <View style={{ flexDirection: 'row', justifyContent: 'space-evenly', marginTop: 16, borderBottomWidth: 1, borderColor: '#EB4A69', paddingBottom: 16 }}>
