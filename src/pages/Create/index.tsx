@@ -10,21 +10,8 @@ import { useNavigation } from "@react-navigation/native";
 import { TOKEN_KEY } from "../../services/auth";
 
 import * as ImagePicker from 'expo-image-picker';
-
-import { initializeApp } from 'firebase/app';
 import * as FileSystem from 'expo-file-system';
 import { FileSystemUploadType } from "expo-file-system";
-
-const firebaseConfig = {
-    apiKey: "AIzaSyC_PQRYqRmsE6mk6cvgHUs7nWZFRdHfZyY",
-    authDomain: "mypet-62d19.firebaseapp.com",
-    projectId: "mypet-62d19",
-    storageBucket: "mypet-62d19.appspot.com",
-    messagingSenderId: "611284061002",
-    appId: "1:611284061002:web:c907800c82055a45114fb3",
-    measurementId: "G-0ZJDS30H1Z"
-};
-initializeApp(firebaseConfig);
 
 export function Create() {
     const [image, setImage] = useState<any>(null);
