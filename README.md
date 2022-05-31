@@ -39,6 +39,17 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 
 
 ```bash
+    # Clonar o repositório da API
+    $ git clone https://github.com/EzequielPires/MyPetBackEnd
+    
+    # Navegar para o diretório
+    $ cd MyPetBackEnd
+    
+    # instalar as dependências
+    $ yarn
+    
+    #Iniciar o projeto
+    $ yarn start:dev
 
     # Clonar o repositório
     $ git clone https://github.com/EzequielPires/MyPetMobile
